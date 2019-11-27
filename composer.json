@@ -1,0 +1,20 @@
+{
+  "name": "romaixn/UserBundle",
+  "type": "symfony-bundle",
+  "description": "Provides a user management",
+  "keywords": ["rherault", "user", "management", "bundle"],
+  "homepage": "https://github.com/romaixn/UserBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Romain Herault"
+    }
+  ],
+  "require": {
+    "php": "^7.1.3"
+  },
+  "target-dir": "Rherault/UserBundle",
+  "autoload": {
+    "psr-4": { "Rherault\\UserBundle\\": "" }
+  }
+}
