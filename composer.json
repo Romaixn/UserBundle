@@ -14,7 +14,6 @@
     "php": "^7.1.3",
     "symfony/http-kernel": "^5.0"
   },
-  "target-dir": "Rherault/UserBundle",
   "autoload": {
     "psr-4": { "Rherault\\UserBundle\\": "" }
   }
