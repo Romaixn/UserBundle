@@ -2,9 +2,9 @@
 
 namespace Rherault\UserBundle\Command;
 
-use App\Entity\User;
-use App\Repository\UserRepository;
-use App\Utils\Validator;
+use Rherault\UserBundle\Entity\User;
+use Rherault\UserBundle\Repository\UserRepository;
+use Rherault\UserBundle\Utils\Validator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\RuntimeException;
