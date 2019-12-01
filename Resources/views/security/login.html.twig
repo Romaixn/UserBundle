@@ -1,0 +1,35 @@
+<div class="rherault_userbundle_form">
+    <form method="POST">
+
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        <h2>Login</h2>
+
+        <div class="mb-4">
+            <label for="inputUsername">Username</label>
+            <input type="email" value="{{ last_username }}" name="username" id="inputUsername" placeholder="Username" required autofocus>
+        </div>
+
+        <div class="mb-6">
+            <label for="inputPassword">Password</label>
+            <input type="password" name="password" id="inputPassword" placeholder="********" required>
+        </div>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <div class="mb-6">
+            <label class="block text-gray-500 font-bold">
+                <input class="mr-2 leading-tight" type="checkbox" name="_remember_me"> 
+                <span class="text-sm">Remember me</span>
+            </label>
+        </div>
+
+        <div class="rherault_userbundle_app_form-bottom">
+            <button type="submit">Login</button>
+        
+            <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="{{ path('app_forgotten_password') }}">Forgotten password ?</a>
+        </div>
+    </form>
+</div>

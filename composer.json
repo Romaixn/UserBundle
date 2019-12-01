@@ -1,20 +1,38 @@
 {
-  "name": "rherault/user-bundle",
-  "type": "symfony-bundle",
-  "description": "Provides a user management for Symfony",
-  "keywords": ["user", "management", "bundle"],
-  "homepage": "https://github.com/romaixn/UserBundle",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Romain Herault"
+    "name": "rherault/user-bundle",
+    "type": "symfony-bundle",
+    "description": "Provides a user management for Symfony",
+    "keywords": [
+        "user",
+        "management",
+        "bundle"
+    ],
+    "homepage": "https://github.com/romaixn/UserBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Romain Herault"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "symfony/http-kernel": "^4.3.7|^5.0",
+        "symfony/console": "^4.3.7|^5.0",
+        "symfony/security-core": "^4.3.7|^5.0",
+        "symfony/security-http": "^4.3.7|^5.0",
+        "symfony/security-csrf": "^4.3.7|^5.0",
+        "symfony/validator": "^5.0",
+        "doctrine/annotations": "^1.8",
+        "symfony/orm-pack": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rherault\\UserBundle\\": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rherault\\UserBundle\\Tests\\" : "Tests/"
+        }
     }
-  ],
-  "require": {
-    "php": "^7.1.3",
-    "symfony/http-kernel": "^4.3.7|^5.0"
-  },
-  "autoload": {
-    "psr-4": { "Rherault\\UserBundle\\": "" }
-  }
 }
