@@ -14,6 +14,14 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class SecurityController extends AbstractController
 {
+
+    private $redirect;
+
+    public function __construct()
+    {
+        $this->redirect = (!empty($this->get('rherault_userbundle.redirect'))) ? $this->get('rherault_userbundle.redirect') : 'index';
+    }
+
     /**
      * @Route("/login", name="rherault_userbundle_login")
      *
@@ -56,7 +64,7 @@ class SecurityController extends AbstractController
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute($this->redirect);
         }
 
         return $this->render('security/register.html.twig');
@@ -82,7 +90,7 @@ class SecurityController extends AbstractController
 
             if ($user === null) {
                 $this->addFlash('danger', 'Unknown email address');
-                return $this->redirectToRoute('index');
+                return $this->redirectToRoute($this->redirect);
             }
 
             $token = $tokenGenerator->generateToken();
@@ -92,7 +100,7 @@ class SecurityController extends AbstractController
                 $entityManager->flush();
             } catch(\Exception $e) {
                 $this->addFlash('warning', $e->getMessage());
-                return $this->redirectToRoute('index');
+                return $this->redirectToRoute($this->redirect);
             }
 
             $url = $this->generateUrl('app_reset_password', ['token' => $token], UrlGeneratorInterface::ABSOLUTE_URL);
@@ -109,7 +117,7 @@ class SecurityController extends AbstractController
 
             $this->addFlash('notice', 'Mail sent');
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute($this->redirect);
         }
 
         return $this->render('security/forgotten_password.html.twig');
@@ -133,7 +141,7 @@ class SecurityController extends AbstractController
 
             if ($user === null) {
                 $this->addFlash('danger', 'Unknown token');
-                return $this->redirectToRoute('index');
+                return $this->redirectToRoute($this->redirect);
             }
 
             $user->setResetToken(null);
@@ -143,7 +151,7 @@ class SecurityController extends AbstractController
 
             $this->addFlash('notice', 'Updated password');
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute($this->redirect);
 
         } else {
             return $this->render('security/reset_password.html.twig', [
