@@ -1,2 +1,6 @@
-logout:
+RheraultUserBundle_logout:
   path : /logout
+
+RheraultUserBundle_user_management:
+  resource: '@Rherault_UserBundle/Controller/SecurityController.php'
+  type: annotation
