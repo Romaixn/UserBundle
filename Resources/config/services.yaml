@@ -1,6 +1,7 @@
-Rherault\UserBundle\Controller\SecurityController:
-  calls:
-    - method: setContainer
-      arguments:
-        - '@service_container'
-      public: true
+services:
+  Rherault\UserBundle\Controller\SecurityController:
+    calls:
+      - method: setContainer
+        arguments:
+          - '@service_container'
+    public: true
