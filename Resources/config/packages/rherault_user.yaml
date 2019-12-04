@@ -1,0 +1,3 @@
+rherault_user:
+  user_class: App\Entity\User
+  email_from: user@domain.com
