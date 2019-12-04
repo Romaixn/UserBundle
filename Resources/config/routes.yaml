@@ -1,6 +1,3 @@
 rherault_userbundle:
   resource: '@Rherault_UserBundle/Controller/'
   type: annotation
-
-rherault_userbundle_logout:
-  path : /logout

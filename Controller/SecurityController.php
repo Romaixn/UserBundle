@@ -41,6 +41,15 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/logout", name="rherault_userbundle_logout")
+     * 
+     * @return RedirectResponse
+     */
+    public function logout()
+    {
+        return $this->redirectToRoute($this->redirect);
+    }
 
     /**
      * @Route("/register", name="rherault_userbundle_register")
